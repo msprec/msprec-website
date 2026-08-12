@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBand from '../components/ContactBand.astro';
+
+const capabilities = [
+  { n: '01', title: 'Precision Machining', body: 'Controlled machining for intricate geometries, critical interfaces, and application-specific component requirements.' },
+  { n: '02', title: 'Custom Manufacturing', body: 'Drawing-based production and process planning tailored to mass spectrometry and scientific instrument applications.' },
+  { n: '03', title: 'Complex Structures', body: 'Manufacturing support for multi-feature parts, precision assemblies, electrodes, and vacuum-compatible structures.' },
+  { n: '04', title: 'Prototype to Small Batch', body: 'Responsive support for R&D iteration, prototype validation, and customized low-volume production.' },
+];
+---
+<BaseLayout title="Mass Spectrometry Precision Components Manufacturer | Maisi Precision" description="Maisi Precision manufactures specialized precision parts and components for mass spectrometry systems and advanced scientific instruments.">
+  <section class="relative overflow-hidden bg-navy-950 text-white">
+    <div class="absolute inset-0 opacity-20 grid-bg"></div>
+    <div class="container-wide relative grid min-h-[68svh] items-center gap-8 py-10 sm:py-12 lg:h-[min(62svh,38rem)] lg:min-h-[32rem] lg:grid-cols-[1.25fr_.75fr] lg:py-10">
+      <div class="relative z-10">
+        <p class="mb-8 text-xs font-bold uppercase tracking-[.22em] text-blue-300">Mass Spectrometry Precision Parts &amp; Components</p>
+        <h1 class="max-w-4xl text-[clamp(2.75rem,3.65vw,3.625rem)] font-bold leading-[1.04] tracking-[-.055em]"><span class="block lg:whitespace-nowrap">Precision Parts &amp; Components</span><span class="block lg:whitespace-nowrap">for Mass Spectrometry Systems</span></h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">We understand the precision requirements of mass spectrometry systems and provide customized components for advanced scientific instruments.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/contact#quote" class="focus-ring rounded-full bg-white px-7 py-4 font-semibold text-navy-950 transition hover:bg-blue-50">Request a Quote <span class="ml-3">→</span></a>
+          <a href="/products" class="focus-ring rounded-full border border-white/25 px-7 py-4 font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Explore Products</a>
+        </div>
+      </div>
+      <div class="relative mx-auto aspect-[16/10] w-full overflow-hidden sm:aspect-[16/9] lg:-ml-4 lg:mr-0 lg:h-full lg:w-[min(40vw,40rem)] lg:max-w-none lg:justify-self-start lg:aspect-auto">
+        <img src="/images/mass-spectrometry-hero.png" alt="Precision mass spectrometry vacuum components with technical drawing details" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" class="h-full w-full object-cover object-[72%_center]" />
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-navy-950/50 to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b hairline bg-white">
+    <div class="container-wide grid md:grid-cols-[.7fr_1.3fr]">
+      <div class="border-b hairline py-12 md:border-b-0 md:border-r md:py-16"><p class="eyebrow">Specialized by design</p></div>
+      <div class="py-12 md:py-16 md:pl-12">
+        <h2 class="section-title max-w-3xl">Not a general-purpose machining supplier.</h2>
+        <p class="lead mt-5 max-w-3xl">Shaoguan Maisi Precision Technology Co., Ltd. focuses on precision components for mass spectrometry equipment and scientific instruments—bringing application awareness to customized manufacturing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ice-50 py-14 md:py-20">
+    <div class="container-wide">
+      <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p class="eyebrow mb-4">Core capabilities</p><h2 class="section-title">Precision in every interface.</h2></div><p class="max-w-md text-base leading-7 text-slate-600">From a drawing review to repeatable delivery, each step is shaped around the component's role in the instrument.</p></div>
+      <div class="grid border-l border-t hairline md:grid-cols-2 lg:grid-cols-4">
+        {capabilities.map((item) => <article class="card-lift border-b border-r hairline bg-white p-6 md:min-h-60"><span class="text-xs font-bold tracking-[.16em] text-navy-700">{item.n}</span><h3 class="mt-9 text-xl font-semibold tracking-[-.02em] text-navy-950">{item.title}</h3><p class="mt-3 text-sm leading-7 text-slate-600">{item.body}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="overflow-hidden bg-white py-14 md:py-20">
+    <div class="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div class="relative min-h-100 overflow-hidden rounded-sm bg-navy-950 p-7 text-white grid-bg">
+        <img src="/images/mass-spectrometry-principle.png" alt="Mass spectrometry ion separation principle diagram" width="1536" height="1024" loading="lazy" decoding="async" class="absolute bottom-0 right-0 h-[80%] w-[80%] object-contain object-right-bottom opacity-45" />
+        <div class="absolute inset-y-0 left-0 w-[72%] bg-gradient-to-r from-navy-950 via-navy-950/70 to-transparent"></div>
+        <div class="relative flex h-full flex-col justify-between"><p class="text-xs font-bold uppercase tracking-[.2em] text-blue-300">Application Focus</p><div><p class="text-7xl font-light tracking-[-.07em] text-white/10">MS</p><h3 class="mt-2 text-3xl font-semibold">Mass Spectrometry Components</h3><p class="mt-5 max-w-md leading-7 text-slate-300">Component-focused manufacturing for ion generation, ion guidance, mass analysis, vacuum systems, and signal detection structures.</p></div></div>
+      </div>
+      <div><p class="eyebrow mb-4">Mass spectrometry focus</p><h2 class="section-title">Manufacturing shaped by instrument requirements.</h2><p class="lead mt-5">Mass spectrometry components operate where vacuum performance, thermal conditions, surface cleanliness, electrical isolation, and precision alignment intersect.</p><div class="mt-7 grid gap-4 sm:grid-cols-2">{['Vacuum-aware structures','Precision mating features','Material-conscious processing','Clean component handling'].map((x) => <div class="border-t-2 border-navy-800 pt-3 text-sm font-semibold text-navy-950">{x}</div>)}</div><a href="/products" class="focus-ring mt-7 inline-flex items-center font-semibold text-navy-800 hover:text-navy-700">View component categories <span class="ml-3">→</span></a></div>
+    </div>
+  </section>
+
+  <section class="metal-bg border-y hairline py-14 md:py-20">
+    <div class="container-wide grid gap-9 md:grid-cols-2">
+      <div><p class="eyebrow mb-4">Precision machining</p><h2 class="section-title">Complex parts. Controlled execution.</h2><p class="lead mt-5">We translate drawings and performance requirements into practical manufacturing routes for complex precision structures, custom parts, and low-volume programs.</p></div>
+      <div class="grid gap-6 sm:grid-cols-2"><div class="border-l border-navy-800 pl-6"><h3 class="font-semibold text-navy-950">Drawing-led planning</h3><p class="mt-3 text-sm leading-7 text-slate-600">Review of features, interfaces, materials, and process considerations before manufacturing.</p></div><div class="border-l border-navy-800 pl-6"><h3 class="font-semibold text-navy-950">Flexible production</h3><p class="mt-3 text-sm leading-7 text-slate-600">Support for prototypes, iteration cycles, customized parts, and small-batch requirements.</p></div><div class="border-l border-navy-800 pl-6"><h3 class="font-semibold text-navy-950">Inspection alignment</h3><p class="mt-3 text-sm leading-7 text-slate-600">Inspection planning centered on critical features and component-level quality requirements.</p></div><div class="border-l border-navy-800 pl-6"><h3 class="font-semibold text-navy-950">Process coordination</h3><p class="mt-3 text-sm leading-7 text-slate-600">Integrated control across manufacturing steps and supporting supplier processes.</p></div></div>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 md:py-20"><div class="container-wide grid gap-8 lg:grid-cols-[.8fr_1.2fr]"><div><p class="eyebrow mb-4">Quality assurance</p><h2 class="section-title">Quality starts before the first cut.</h2></div><div><p class="lead">Our approach begins with understanding the drawing, the component's functional context, and the features that matter most. Manufacturing and inspection are planned as one connected process.</p><a href="/quality" class="focus-ring mt-7 inline-flex items-center rounded-full border border-navy-800 px-6 py-3 font-semibold text-navy-800 hover:bg-navy-950 hover:text-white">Explore our quality approach <span class="ml-3">→</span></a></div></div></section>
+  <ContactBand />
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout title="Contact Maisi Precision | Request a Quote" description="Contact Shaoguan Maisi Precision Technology Co., Ltd. about custom mass spectrometry parts and scientific instrument precision components.">
+  <PageHero eyebrow="Contact" title="Bring us your precision component challenge." intro="Share your drawings, target application, materials, quantities, and project requirements. Our team will review the manufacturing context and provide a suitable precision manufacturing solution." />
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="eyebrow mb-5">Company information</p><h2 class="text-3xl font-semibold tracking-[-.035em] text-navy-950">Shaoguan Maisi Precision Technology Co., Ltd.</h2><p class="mt-6 leading-7 text-slate-600">Maisi Precision specializes in customized precision parts manufacturing and module assembly support for mass spectrometry systems and scientific instruments. Our technical team has more than ten years of experience in mass spectrometry component manufacturing, assembly, and inspection.</p>
+        <dl class="mt-10 border-t hairline">
+          {[['Brand','Maisi Precision'],['Website','msprec.com'],['Industry Focus','Mass Spectrometry Precision Parts & Components'],['Location','Shaoguan, Guangdong, China'],['Service','Custom Parts Manufacturing & Module Assembly Support']].map(([term, value]) => <div class="grid grid-cols-[1fr_auto] gap-5 border-b hairline py-4 text-sm"><dt class="text-slate-500">{term}</dt><dd class:list={["max-w-xs text-right font-medium", value === 'TODO' ? 'text-amber-700' : 'text-navy-950']}>{value}</dd></div>)}
+        </dl>
+      </div>
+      <div id="quote" class="bg-ice-50 p-7 sm:p-10">
+        <p class="eyebrow mb-5">Request a quote</p><h2 class="text-3xl font-semibold tracking-[-.035em] text-navy-950">Submit Your Project Requirements</h2><p class="mt-5 leading-7 text-slate-600">Send your component drawings, technical requirements, and project information. Our team will review your application requirements and provide manufacturing feedback.</p>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2"><div class="border-t-2 border-navy-800 pt-5"><span class="block text-xs uppercase tracking-[.14em] text-slate-500">Email</span><strong class="mt-2 block text-amber-700"><a href="mailto:engineering@msprec.com">engineering@msprec.com</a></strong></div><div class="border-t-2 border-navy-800 pt-5"><span class="block text-xs uppercase tracking-[.14em] text-slate-500">WhatsApp</span><strong class="mt-2 block text-amber-700"><a href="https://wa.me/8613259754330" target="_blank" rel="noopener noreferrer">+86 132 5975 4330</a></strong></div></div>
+        <div class="mt-10 border border-blue-200 bg-white p-6"><h3 class="font-semibold text-navy-950">Helpful information to include</h3><ul class="mt-4 grid gap-3 text-sm leading-6 text-slate-600 sm:grid-cols-2"><li>• Project requirements</li><li>• Component drawings</li><li>• Material requirements</li><li>• Target quantities</li><li>• Application requirements</li><li>• Inspection requirements</li></ul></div>
+        <a href="/contact#quote" class="focus-ring mt-7 inline-flex items-center justify-center rounded-full bg-navy-950 px-7 py-4 font-semibold text-white transition hover:bg-navy-700">Request a Quote <span class="ml-3" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

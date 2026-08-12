@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactBand from '../components/ContactBand.astro';
+
+const groups = [
+  {
+    id: '01',
+    title: 'Mass Spectrometry Core Components',
+    intro: 'Precision components positioned within the ion generation, analysis, collision, and detection pathways of mass spectrometry systems.',
+    items: [
+      ['Ion source related components', 'Custom parts and structures supporting ion generation assemblies and their critical mechanical interfaces.'],
+      ['Filament related components', 'Precision structures associated with filament mounting, positioning, and assembly requirements.'],
+      ['Faraday cup assemblies', 'Custom mechanical components and assembly parts for ion detection structures.'],
+      ['Quadrupole related precision modules', 'Precision mechanical parts and structures supporting controlled quadrupole alignment and assembly.'],
+      ['Collision cell components', 'Application-specific components for collision cell structures and related precision interfaces.'],
+    ],
+  },
+  {
+    id: '02',
+    title: 'Ultra-high Vacuum Components',
+    intro: 'Drawing-based components designed around vacuum integrity, sealing interfaces, material selection, and clean system integration.',
+    items: [
+      ['Vacuum chambers', 'Customized chamber structures for scientific instrument vacuum environments.'],
+      ['Vacuum flanges', 'Precision flange components with controlled sealing and mating features.'],
+      ['Sealing structures', 'Mechanical sealing interfaces developed to match system-level vacuum requirements.'],
+      ['Vacuum-compatible precision parts', 'Custom geometries and supporting components intended for use in controlled vacuum environments.'],
+    ],
+  },
+  {
+    id: '03',
+    title: 'Ion Optics & Custom Precision Components',
+    intro: 'Specialized, drawing-defined components for ion optics, electrical fields, insulation, shielding, and instrument-specific structures.',
+    items: [
+      ['Ion optics components', 'Custom structures used to guide, shape, and transmit ions through instrument pathways.'],
+      ['Electrodes', 'Precision electrode components including focusing, extraction, and shielding electrode structures.'],
+      ['Grids', 'Custom grid structures for electric field control and ion transmission applications.'],
+      ['High-purity graphite precision parts', 'Machined graphite parts for application-specific thermal and electrical requirements.'],
+      ['Ceramic insulation components', 'Precision ceramic parts supporting electrical isolation and structural integration.'],
+    ],
+  },
+];
+---
+<BaseLayout title="Mass Spectrometry Components | Maisi Precision" description="Explore custom mass spectrometry core components, ultra-high vacuum parts, ion optics, electrodes, graphite parts, and ceramic insulation components.">
+  <PageHero eyebrow="Product portfolio" title="Mass Spectrometry Precision Parts & Components" intro="Specialized components for ion sources, vacuum systems, ion optics, and scientific instrument assemblies." />
+  <section class="border-b hairline bg-white"><div class="container-wide grid gap-8 py-14 md:grid-cols-[1fr_1.4fr] md:py-20"><p class="eyebrow">Specialized component categories</p><p class="lead">We manufacture from customer drawings and technical requirements. Component descriptions are application-focused and do not imply compatibility with any commercial instrument brand or model.</p></div></section>
+  {groups.map((group, index) => (
+    <section class:list={["py-20 md:py-28", index % 2 ? "bg-ice-50" : "bg-white"]}>
+      <div class="container-wide">
+        <div class="grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
+          <div><span class="text-xs font-bold tracking-[.18em] text-navy-700">{group.id}</span><h2 class="section-title mt-5">{group.title}</h2><p class="mt-6 max-w-xl leading-7 text-slate-600">{group.intro}</p></div>
+          <div class="border-t hairline">
+            {group.items.map(([title, body], itemIndex) => (
+              <article class="group grid gap-3 border-b hairline py-6 sm:grid-cols-[3rem_1fr_1.4fr] sm:gap-5">
+                <span class="text-xs font-semibold text-steel-400">{String(itemIndex + 1).padStart(2, '0')}</span><h3 class="font-semibold text-navy-950">{title}</h3><p class="text-sm leading-6 text-slate-600">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+  <ContactBand />
+</BaseLayout>
