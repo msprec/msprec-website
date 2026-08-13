@@ -14,11 +14,27 @@ const canonical = new URL(path, Astro.site);
 const organization = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Shaoguan Maisi Precision Technology Co., Ltd.',
-  alternateName: 'Maisi Precision',
-  url: 'https://msprec.com',
+  '@id': 'https://msprec.com/#organization',
+  name: 'Maisi Precision',
+  legalName: 'Shaoguan Maisi Precision Technology Co., Ltd.',
+  url: 'https://msprec.com/',
   logo: 'https://msprec.com/maisi-logo.png',
-  description: 'A specialized precision parts and components supplier for mass spectrometry equipment manufacturers and scientific instrument companies.',
+  description: 'Maisi Precision is a specialized manufacturer of precision parts and components for mass spectrometry systems and advanced scientific instruments.',
+  email: 'engineering@msprec.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Shilong Industry Transfer Industrial Park',
+    addressLocality: 'Shaoguan',
+    addressRegion: 'Guangdong',
+    addressCountry: 'CN',
+  },
+  knowsAbout: [
+    'Mass spectrometry components',
+    'Ultra-high vacuum components',
+    'Ion optics components',
+    'Precision component manufacturing',
+    'Scientific instrument components',
+  ],
 };
 ---
 <!doctype html>
