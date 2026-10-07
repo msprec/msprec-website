@@ -41,9 +41,24 @@ const groups = [
   },
 ];
 
-const galleryImages = Array.from(
-  { length: 12 },
-  (_, index) => `/images/manufacturing-gallery/maisi-gallery-${String(index + 1).padStart(2, '0')}.jpg`,
+const galleryMaterials = [
+  { id: 'stainless-steel', label: 'Stainless Steel', altMaterial: 'stainless steel', count: 39 },
+  { id: 'copper', label: 'Copper', altMaterial: 'copper', count: 3 },
+  { id: 'aluminum', label: 'Aluminum', altMaterial: 'aluminum', count: 5 },
+  { id: 'peek', label: 'PEEK', altMaterial: 'PEEK', count: 4 },
+  { id: 'ptfe', label: 'PTFE', altMaterial: 'PTFE', count: 3 },
+  { id: 'acrylic', label: 'Acrylic', altMaterial: 'acrylic', count: 1 },
+];
+
+const galleryImages = galleryMaterials.flatMap((material) =>
+  Array.from({ length: material.count }, (_, index) => {
+    const filename = `${material.id}-${String(index + 1).padStart(2, '0')}.jpg`;
+    return {
+      material: material.id,
+      thumb: `/images/manufacturing-gallery/thumbs/${filename}`,
+      alt: `Custom ${material.altMaterial} precision component manufactured by Maisi Precision.`,
+    };
+  }),
 );
 ---
 <BaseLayout title="Mass Spectrometry Components | Maisi Precision" description="Explore custom mass spectrometry core components, ultra-high vacuum parts, ion optics, electrodes, graphite parts, and ceramic insulation components.">
@@ -74,86 +89,80 @@ const galleryImages = Array.from(
         <p class="mt-6 text-lg leading-8 text-slate-600">Selected custom precision components manufactured by Maisi Precision for mass spectrometry, scientific instrumentation and related applications.</p>
       </div>
 
-      <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-14 lg:grid-cols-3 lg:gap-6">
-        {galleryImages.map((src, index) => (
-          <button
-            type="button"
-            class="focus-ring group overflow-hidden border hairline bg-white p-2 text-left shadow-[0_12px_35px_rgba(4,21,47,.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(4,21,47,.12)] sm:p-3"
-            data-gallery-trigger
-            data-gallery-src={src}
-            aria-label={`Open manufacturing gallery image ${index + 1}`}
+      <div class="mt-9 flex flex-wrap gap-2" role="group" aria-label="Filter gallery by material">
+        <button type="button" class="gallery-filter focus-ring" data-gallery-filter="all" aria-pressed="true">All</button>
+        {galleryMaterials.map((material) => (
+          <button type="button" class="gallery-filter focus-ring" data-gallery-filter={material.id} aria-pressed="false">
+            {material.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:mt-14 lg:grid-cols-5 lg:gap-5">
+        {galleryImages.map((image) => (
+          <div
+            class="overflow-hidden border hairline bg-white p-2 shadow-[0_10px_28px_rgba(4,21,47,.06)]"
+            data-gallery-item
+            data-material={image.material}
           >
-            <span class="block aspect-[4/3] overflow-hidden bg-white">
+            <span class="block aspect-square overflow-hidden bg-white">
               <img
-                src={src}
-                alt="Custom precision component manufactured by Maisi Precision."
-                width="1400"
-                height="1050"
+                src={image.thumb}
+                alt={image.alt}
+                width="640"
+                height="640"
                 loading="lazy"
                 decoding="async"
-                class="h-full w-full object-contain transition duration-300 group-hover:scale-[1.015]"
+                class="h-full w-full object-contain"
               />
             </span>
-          </button>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <dialog
-    id="manufacturing-gallery-lightbox"
-    class="m-auto max-h-[92vh] w-[min(92vw,86rem)] overflow-visible bg-transparent p-0 backdrop:bg-navy-950/85"
-    aria-label="Manufacturing gallery image viewer"
-  >
-    <div class="relative flex max-h-[92vh] items-center justify-center rounded-sm bg-white p-2 shadow-2xl sm:p-4">
-      <img
-        data-lightbox-image
-        src=""
-        alt="Custom precision component manufactured by Maisi Precision."
-        width="1400"
-        height="1050"
-        class="max-h-[calc(92vh-2rem)] w-auto max-w-full object-contain"
-      />
-      <button
-        type="button"
-        data-lightbox-close
-        class="focus-ring absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-navy-950/90 text-2xl leading-none text-white transition hover:bg-navy-800 sm:right-5 sm:top-5"
-        aria-label="Close image viewer"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </dialog>
+  <style>
+    .gallery-filter {
+      border: 1px solid rgb(148 163 184 / 0.65);
+      border-radius: 9999px;
+      background: white;
+      padding: 0.65rem 1rem;
+      color: #0f2747;
+      font-size: 0.875rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .gallery-filter:hover {
+      border-color: #0f2747;
+    }
+
+    .gallery-filter[aria-pressed='true'] {
+      border-color: #0f2747;
+      background: #0f2747;
+      color: white;
+    }
+  </style>
 
   <script>
-    const dialog = document.querySelector<HTMLDialogElement>('#manufacturing-gallery-lightbox');
-    const lightboxImage = dialog?.querySelector<HTMLImageElement>('[data-lightbox-image]');
-    const closeButton = dialog?.querySelector<HTMLButtonElement>('[data-lightbox-close]');
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-gallery-filter]');
+    const galleryItems = document.querySelectorAll<HTMLElement>('[data-gallery-item]');
 
-    document.querySelectorAll<HTMLButtonElement>('[data-gallery-trigger]').forEach((trigger) => {
-      trigger.addEventListener('click', () => {
-        const src = trigger.dataset.gallerySrc;
-        if (!dialog || !lightboxImage || !src) return;
-        lightboxImage.src = src;
-        dialog.showModal();
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.galleryFilter;
+        if (!filter) return;
+
+        filterButtons.forEach((filterButton) => {
+          filterButton.setAttribute('aria-pressed', String(filterButton === button));
+        });
+
+        galleryItems.forEach((item) => {
+          item.hidden = filter !== 'all' && item.dataset.material !== filter;
+        });
       });
-    });
-
-    closeButton?.addEventListener('click', () => dialog?.close());
-
-    dialog?.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && dialog?.open) {
-        event.preventDefault();
-        dialog.close();
-      }
-    });
-
-    dialog?.addEventListener('close', () => {
-      if (lightboxImage) lightboxImage.src = '';
     });
   </script>
 
