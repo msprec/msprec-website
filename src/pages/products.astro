@@ -61,7 +61,7 @@ const galleryImages = galleryMaterials.flatMap((material) =>
   }),
 );
 ---
-<BaseLayout title="Mass Spectrometry Components | Maisi Precision" description="Explore custom mass spectrometry core components, ultra-high vacuum parts, ion optics, electrodes, graphite parts, and ceramic insulation components.">
+<BaseLayout title="Custom Mass Spectrometry Precision Components | Maisi Precision" description="Custom precision components for mass spectrometry, ultra-high vacuum systems and scientific instruments, manufactured from customer drawings by Maisi Precision.">
   <PageHero eyebrow="Product portfolio" title="Mass Spectrometry Precision Parts & Components" intro="Specialized components for ion sources, vacuum systems, ion optics, and scientific instrument assemblies." />
   <section class="border-b hairline bg-white"><div class="container-wide grid gap-8 py-14 md:grid-cols-[1fr_1.4fr] md:py-20"><p class="eyebrow">Specialized component categories</p><p class="lead">We manufacture from customer drawings and technical requirements. Component descriptions are application-focused and do not imply compatibility with any commercial instrument brand or model.</p></div></section>
   {groups.map((group, index) => (
@@ -86,7 +86,7 @@ const galleryImages = galleryMaterials.flatMap((material) =>
       <div class="max-w-3xl">
         <p class="eyebrow">Selected manufacturing work</p>
         <h2 id="manufacturing-gallery-heading" class="section-title mt-5">Manufacturing Gallery</h2>
-        <p class="mt-6 text-lg leading-8 text-slate-600">Selected custom precision components manufactured by Maisi Precision for mass spectrometry, scientific instrumentation and related applications.</p>
+        <p class="mt-6 text-lg leading-8 text-slate-600">Explore selected custom precision components manufactured for mass spectrometry, vacuum systems and scientific instrumentation. Our manufacturing capabilities cover stainless steel, copper, aluminum, PEEK, PTFE and acrylic, supporting prototypes, small batches and repeat production based on customer drawings.</p>
       </div>
 
       <div class="mt-9 flex flex-wrap gap-2" role="group" aria-label="Filter gallery by material">
@@ -118,6 +118,31 @@ const galleryImages = galleryMaterials.flatMap((material) =>
             </span>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y hairline bg-white py-12 md:py-16" aria-labelledby="related-insights-heading">
+    <div class="container-wide">
+      <div class="grid gap-8 md:grid-cols-[.7fr_1.3fr] md:items-start">
+        <div>
+          <p class="eyebrow">Resources</p>
+          <h2 id="related-insights-heading" class="mt-4 text-2xl font-semibold tracking-[-.03em] text-navy-950">Related Technical Insights</h2>
+        </div>
+        <nav class="border-t hairline" aria-label="Related technical insights">
+          <a href="/resources/icp-ms-precision-components/" class="focus-ring group flex items-center justify-between gap-5 border-b hairline py-4 text-sm font-semibold text-navy-950 transition hover:text-navy-700">
+            <span>Precision Components for ICP-MS Systems: Manufacturing Requirements and Supplier Considerations</span>
+            <span aria-hidden="true" class="text-steel-400 transition group-hover:translate-x-1">→</span>
+          </a>
+          <a href="/resources/cnc-machining-ion-optics-mass-spectrometry/" class="focus-ring group flex items-center justify-between gap-5 border-b hairline py-4 text-sm font-semibold text-navy-950 transition hover:text-navy-700">
+            <span>CNC Machining Ion Optics for Mass Spectrometry Systems</span>
+            <span aria-hidden="true" class="text-steel-400 transition group-hover:translate-x-1">→</span>
+          </a>
+          <a href="/resources/precision-machining-quadrupole-components-mass-spectrometry/" class="focus-ring group flex items-center justify-between gap-5 border-b hairline py-4 text-sm font-semibold text-navy-950 transition hover:text-navy-700">
+            <span>Precision Machining Quadrupole Components for Mass Spectrometry</span>
+            <span aria-hidden="true" class="text-steel-400 transition group-hover:translate-x-1">→</span>
+          </a>
+        </nav>
       </div>
     </div>
   </section>
